@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --textColor: #d7b94c;
+  --backgroundColor: #1d1f20;
+  --cursor: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--backgroundColor);
+  color: white;
+}
+
+.container {
+  font-family: "Consolas";
+  font-size: 2rem;
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+
+  overflow: hidden;
+}
+
+.dynamic {
+  margin-left: 20px;
+}
+
+.dynamic li {
+  list-style: none;
+  color: var(--textColor);
+}
+
+.dynamic li span {
+  position: relative;
+  top: 0;
+  animation: slide calc(2s * 3) steps(3) infinite;
+}
+
+.dynamic li span::after {
+  content: "|";
+  color: var(--cursor);
+  position: absolute;
+  right: 0;
+  background-color: var(--backgroundColor);
+  width: 100%;
+  animation: typing 2s steps(18) infinite;
+}
+
+@keyframes cursor {
+  50% {
+    color: transparent;
+  }
+}
+
+@keyframes typing {
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes slide {
+  100% {
+    top: calc(-60px * 3);
+  }
+}
